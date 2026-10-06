@@ -79,6 +79,24 @@
             b = aux;
         }
 
+        //Método Agregar
+
+        public void Agregar(int numero)
+        {
+            if (EstaLleno)
+            {
+                throw new Exception("El arreglo está lleno");
+            }
+
+            _arreglo[_tope] = numero;
+            _tope++;
+
+
+
+        }
+
+
+
 
         public override string ToString()
         {
