@@ -117,6 +117,54 @@
             _tope++;
         }
 
+        //Método eliminar
+
+        public void Eliminar(int posicion)
+        {
+            if (EstaVacio)
+            {
+                throw new Exception("El arreglo esta vacío");
+            }
+            if (posicion < 0)
+            {
+                posicion = 0;
+            }
+            if (posicion > _tope)
+            {
+                posicion = _tope;
+            }
+
+            for (int i = posicion; i <= _tope - 1; i++)
+            {
+                _arreglo[i] = _arreglo[i + 1];
+            }
+            _tope--;
+        }
+
+
+        //Método obtener pares
+        public MiArreglo ObtenerPares()
+        {
+            int contandoPares = 0;
+            for (int i = 0; i < _tope; i++)
+            {
+                if (_arreglo[i] % 2 == 0)
+                {
+                    contandoPares++;
+                }
+            }
+            var arregloPares = new MiArreglo(contandoPares);
+
+            for (int i = 0; i < _tope; i++)
+            {
+                if (_arreglo[i] % 2 == 0)
+                {
+                    arregloPares.Agregar(_arreglo[i]);
+                }
+            }
+            return arregloPares;
+        }
+
         public override string ToString()
         {
 
